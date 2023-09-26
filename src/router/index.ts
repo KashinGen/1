@@ -1,5 +1,7 @@
 import * as Pages from '../pages';
 import Handlebars from 'handlebars';
+import { Route } from '../types';
+
 
 const routes = {
     404: {
@@ -24,13 +26,11 @@ const routes = {
         template: Pages.LoginPage,
         title: 'Авторизация',
         description: 'Авторизация',
-        name: 'login',
     },
     '/login': {
         template: Pages.LoginPage,
         title: 'Авторизация',
         description: 'Авторизация',
-        name: 'login',
     },
     '/register': {
         template: Pages.RegistrationPage,
@@ -60,6 +60,9 @@ const routes = {
     
 };
 
+type locationKey = keyof typeof routes;
+
+
 
 
 
@@ -79,7 +82,7 @@ const attachRouterListeners = () => {
 }
 
 
-const urlRoute = (e: MouseEvent) => {
+const urlRoute = (e: Event) => {
     e = e || window.event;
     if (e) {
         e.preventDefault();
@@ -99,7 +102,7 @@ const urlLocationHandler = () => {
     if (location.length === 0) {
         location = '/';
     }
-    const route = routes[location] || routes[404];
+    const route: Route = routes[location as locationKey]  || routes[404];
     const root = document.getElementById('root');
     if (root) {
         root.innerHTML = Handlebars.compile(route.template)(route.context);
