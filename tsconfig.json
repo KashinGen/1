@@ -19,5 +19,4 @@
       "strictNullChecks": true
     },
     "include": ["src", "server.cjs"],
-    "exclude": ["node_modules", ".vscode"],
 }
