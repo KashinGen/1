@@ -5,10 +5,12 @@ import './buttonStyles.scss';
 
 export class Button extends Block {
     constructor(props: ButtonProps) {
-        super(props);
-        this.props.events = {
-            click: this.props.onClick || (() => {})
-        }
+        super({
+            ...props,
+            events: {
+                click: props.onClick,
+            },
+        });
     }
 
     protected render(): string {

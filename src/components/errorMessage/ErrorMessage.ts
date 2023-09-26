@@ -13,6 +13,7 @@ export class ErrorMessage extends Block {
     }
 
     protected render() {
+        console.log('render')
         return template;
     }
 }

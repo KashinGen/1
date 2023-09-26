@@ -1,12 +1,16 @@
 <div class="profile-item">
     <label class="profile-item__label">{{label}}</label>
     {{#if isEdit}}
-        <input 
-            class="profile-item__input" 
-            name="{{name}}"
-            type="{{type}}" 
-            value="{{value}}" 
-        />
+        {{{
+            BaseInput 
+                name=name
+                ref="input"    
+                type=type
+                value=value
+                placeholder=placeholder
+                onBlur=onBlur
+                className="profile-item__input"
+        }}}
     {{else}}
         <span class="profile-item__value">{{value}}</span>
     {{/if}}

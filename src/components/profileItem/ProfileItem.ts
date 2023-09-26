@@ -35,12 +35,12 @@ export class ProfileItem extends Block {
         const validationMessage = (this.refs.validationMessage as ErrorMessage);
         if (error) {
             validationMessage?.setProps({
-                validationMessage: error
+                message: error
             });
             return false;
         }
         validationMessage?.setProps({
-            validationMessage: ''
+            message: ''
         });
         return true;
     }

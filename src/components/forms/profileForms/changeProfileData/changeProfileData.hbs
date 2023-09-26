@@ -1,17 +1,17 @@
-{{#> Form formStyles="profile__container" }}
+{{#> Form formStyles="profile__container" onSubmit=onSave }}
     <div class="profile__avatar">
         {{{ Avatar }}}
     </div>
     <div class="profile__info">
-        {{{ ProfileItem label="Почта" isEdit=true name="email" type="email" value="iiivanov@yandex.ru" }}}
-        {{{ ProfileItem label="Логин" isEdit=true name="login" type="text" value="iiivanov" }}}
-        {{{ ProfileItem label="Имя" isEdit=true name="first_name" type="text" value="Иван" }}}
-        {{{ ProfileItem label="Отчество" isEdit=true name="midle_name" type="text" value="Иванович" }}}
-        {{{ ProfileItem label="Фамилия" isEdit=true name="second_name" type="text" value="Иванов" }}}
-        {{{ ProfileItem label="Никнейм" isEdit=true name="display_name" type="text" value="Иван" }}}
-        {{{ ProfileItem label="Телефон" isEdit=true name="phone" type="phone" value="8-800-535-35-35" }}}
+        {{{ ProfileItem label="Почта" isEdit=true name="email" type="email" value="pochta@yandex.ru" ref="email" validate=validate.email }}}
+        {{{ ProfileItem label="Логин" isEdit=true name="login" type="text" value="ivanivanov" ref="login" validate=validate.login }}}
+        {{{ ProfileItem label="Имя" isEdit=true name="first_name" type="text" value="Иван"  ref="firstName" validate=validate.firstName }}}
+        {{{ ProfileItem label="Отчество" isEdit=true name="midle_name" type="text" value="Иванович"  ref="middleName" validate=validate.middleName }}}
+        {{{ ProfileItem label="Фамилия" isEdit=true name="second_name" type="text" value="Иванов" ref="secondName" validate=validate.secondName }}}
+        {{{ ProfileItem label="Никнейм" isEdit=true name="display_name" type="text" value="Иван" ref="displayName" validate=validate.displayName  }}}
+        {{{ ProfileItem label="Телефон" isEdit=true name="phone" type="phone" value="+7(909)967 30 30" ref="phone" validate=validate.phone }}}
     </div>
-    <div class="profile__part profile__buttons-standart-container">
-        {{{ Button text="Сохранить" type="primary" }}}
+    <div class="profile__part profile__buttons-container">
+        {{{ Button text="Сохранить" type="primary" onClick=onSave}}}
     </div>
 {{/Form}}

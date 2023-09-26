@@ -71,7 +71,6 @@ class Block {
         const { events = {} } = this.props as {
       events: Record<string, () => void>;
     };
-
         Object.keys(events).forEach((eventName) => {
             this._element?.addEventListener(eventName, events[eventName]);
         });
@@ -122,7 +121,7 @@ class Block {
     }
 
     protected componentDidUpdate(oldProps: unknown, newProps: unknown) {
-        return JSON.stringify(oldProps) === JSON.stringify(newProps);
+        return JSON.stringify(oldProps) === JSON.stringify(newProps) || true;
     }
 
     setProps = (nextProps: Props) => {
@@ -188,9 +187,7 @@ class Block {
             },
             set(target, prop: string, value) {
                 const oldTarget = { ...target };
-
                 target[prop] = value;
-
                 self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
                 return true;
             },

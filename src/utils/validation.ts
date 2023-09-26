@@ -25,17 +25,17 @@ export const validateLogin = (val: string) => {
     if(!val) {
         return 'Обязательное поле';
     }
-    if(!/[^a-zA-Z0-9а-яА-Я\-\\_]/g.test(val)) {
+    if(/[^a-zA-Z0-9а-яА-Я\-\\_]/g.test(val)) {
         return 'Поле не должно содержать спецсимволы';
     }
-    if(!/[^a-zA-Z0-9\-\\_]/g.test(val)) {
+    if(/[^a-zA-Z0-9\-\\_]/g.test(val)) {
         return 'Только латиница';
     }
-    if(!/^\d+$/.test(val)) {
+    if(/^\d+$/.test(val)) {
         return 'Не должно состоять только из цифр';
     }
     if(!/^.{3,20}$/.test(val)) {
-        return 'длина должна быть от 3 до 20 символов';
+        return 'Длина должна быть от 3 до 20 символов';
     }
 }
 
