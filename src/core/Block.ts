@@ -138,18 +138,9 @@ class Block {
     }
 
     private _render() {
-        const fragment = this.render();
-
+        const block = this.render();
         this._removeEvents();
-
-        const newElement = fragment.firstElementChild as HTMLElement;
-
-        if (this._element) {
-            this._element.replaceWith(newElement);
-        }
-
-        this._element = newElement;
-
+        this._element!.innerHTML = block;
         this._addEvents();
     }
 
@@ -172,8 +163,8 @@ class Block {
         return temp.content;
     }
 
-    protected render(): DocumentFragment {
-        return new DocumentFragment();
+    protected render(): string {
+        return '';
     }
 
     getContent() {

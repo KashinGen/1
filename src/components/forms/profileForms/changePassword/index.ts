@@ -1,1 +1,1 @@
-export { default as ChangeProfilePasswordForm } from './changeProfilePassword.hbs?raw';
+export { ChangeProfileDataForm } from '../changeProfileData/ChangeProfileData';
