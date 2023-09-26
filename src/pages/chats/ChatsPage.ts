@@ -1,6 +1,6 @@
 import Block from '../../core/Block';
 import template from './chatsPage.hbs?raw';
-import '../chatsPageStyles.scss';
+import './chatsPageStyles.scss';
 
 
 export class ChatsPage extends Block {

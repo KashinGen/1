@@ -5,7 +5,6 @@ import Block from './Block';
 export function registerComponent(name: string, Component: typeof Block) {
     if (name in Handlebars.helpers) {
         throw new Error('error');
-    // throw `The ${name} component is already registered!`;
     }
 
     Handlebars.registerHelper(
@@ -38,4 +37,9 @@ export function registerComponent(name: string, Component: typeof Block) {
             return `<div ${dataAttribute}>${contents}</div>`;
         },
     );
+}
+
+
+export const registerPartial = (name: string, template: string) => {
+    Handlebars.registerPartial(name, template);
 }

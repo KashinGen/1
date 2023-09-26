@@ -1,5 +1,4 @@
 import * as Pages from '../pages';
-import Handlebars from 'handlebars';
 import { Route } from '../types';
 
 
@@ -105,7 +104,10 @@ const urlLocationHandler = () => {
     const route: Route = routes[location as locationKey]  || routes[404];
     const root = document.getElementById('root');
     if (root) {
-        root.innerHTML = Handlebars.compile(route.template)(route.context);
+        //root.innerHTML = Handlebars.compile(route.template)(route.context);
+        const component = route.context ? new route.template(route.context) : new route.template();
+        root.innerHTML = '';
+        root.append(component.element!);
         attachRouterListeners();
         document.title = route.title;
         const description = document.querySelector('meta[name="description"]');

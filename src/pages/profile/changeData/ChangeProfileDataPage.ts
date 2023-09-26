@@ -1,6 +1,6 @@
 import Block from '../../../core/Block';
 import template from './changeProfileDataPage.hbs?raw';
-import '../pagesStyles.scss';
+import '../../pagesStyles.scss';
 import '../profilePageStyles.scss';
 
 export class ChangeProfileDataPage extends Block {

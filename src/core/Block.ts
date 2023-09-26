@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import Handlebars from 'handlebars';
 
 import { EventBus } from './EventBus';
 
@@ -16,7 +17,7 @@ class Block {
 
     protected props: Props;
 
-    protected refs: Record<string, Block> = {};
+    protected refs: Record<string, Block | HTMLElement> = {};
 
     public children: Record<string, Block>;
 
@@ -121,8 +122,7 @@ class Block {
     }
 
     protected componentDidUpdate(oldProps: unknown, newProps: unknown) {
-        console.log(oldProps, newProps)
-        return true;
+        return JSON.stringify(oldProps) === JSON.stringify(newProps);
     }
 
     setProps = (nextProps: Props) => {
@@ -138,32 +138,40 @@ class Block {
     }
 
     private _render() {
-        const block = this.render();
-        this._removeEvents();
-        this._element!.innerHTML = block;
+        const fragment = this.compile(this.render(), this.props);
+        const newElement = fragment.firstElementChild as HTMLElement;
+        if (this._element) {
+            this._element.replaceWith(newElement);
+        }
+        this._element = newElement;
         this._addEvents();
     }
 
-    protected compile(template: (context: unknown) => string, context: unknown) {
-        const contextAndStubs = { ...(context as object),
-            __refs: this.refs ,
-            __children: [] as Array<{component: unknown, embed(node: DocumentFragment): void}>,
-        };
+    protected compile(template: string, context: unknown)  {
+        const { children, html, refs } = compileTemplate(template, context);
+        const htmlTemplateElement = document.createElement('template');
+        htmlTemplateElement.innerHTML = html;
 
-        const html = template(contextAndStubs);
+        const fragment = htmlTemplateElement.content;
+        this.refs = Array.from(fragment.querySelectorAll('[ref]'))
+            .reduce((list, element) => {
+                const key = element.getAttribute('ref') as string;
+                list[key] = element as HTMLElement;
+                element.removeAttribute('ref');
+                return list;
+            }, refs);
 
-        const temp = document.createElement('template');
-
-        temp.innerHTML = html;
-
-        contextAndStubs.__children?.forEach(({ embed }) => {
-            embed(temp.content);
+        children?.forEach(({embed}: {embed(node: DocumentFragment): void}) => {
+            embed(htmlTemplateElement.content);
         });
-
-        return temp.content;
+        return htmlTemplateElement.content;
     }
 
     protected render(): string {
+        return '';
+    }
+
+    public getTemplate(): string {
         return '';
     }
 
@@ -206,3 +214,13 @@ class Block {
 }
 
 export default Block;
+
+export const compileTemplate = (template: string, context: unknown) => {
+    const data = {
+        ...(context as object), 
+        __children: [] as Array<{component: unknown, embed(node: DocumentFragment): void}>,
+        __refs: {} as Record<string, Block | HTMLElement>,
+    };
+    const html = Handlebars.compile(template)(data);
+    return { html, children: data.__children, refs: data.__refs };
+};

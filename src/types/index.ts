@@ -1,8 +1,10 @@
+import Block from '../core/Block';
+
 export interface Route {
     title: string;
-    template: unknown;
+    template: typeof Block;
     description: string,
-    context?: unknown;
+    context?:  Props;
 }
 
 export type InputType = 'password' | 'text' | 'number';
@@ -23,7 +25,7 @@ export interface ButtonProps extends Props {
     onClick?: () => void
 }
 
-export interface AuthFormProps {
+export interface AuthFormProps extends Props {
     validate: {
         login: (value?: string) => boolean;
         password: (value?: string) => boolean;
@@ -31,7 +33,7 @@ export interface AuthFormProps {
     onLogin: (event: MouseEvent) => void;
 }
 
-export interface RegistrationFormProps {
+export interface RegistrationFormProps extends Props {
     validate: {
         email: (value?: string) => boolean;
         login: (value?: string) => boolean;
@@ -45,7 +47,7 @@ export interface RegistrationFormProps {
     onRegister: (event: MouseEvent) => void;
 }
 
-export interface ChangeProfilePasswordFormProps {
+export interface ChangeProfilePasswordFormProps extends Props {
     validate: {
         oldPassword: (value?: string) => boolean;
         newPassword: (value?: string) => boolean;
@@ -54,7 +56,7 @@ export interface ChangeProfilePasswordFormProps {
     onSave: (event: MouseEvent) => void;
 }
 
-export interface ProfileData {
+export interface ProfileData extends Props {
     email: string;
     login: string;
     secondName: string;
@@ -83,7 +85,7 @@ export interface ProfileItemProps extends Props{
     validate?: (value?: string) => string;
 }
 
-export interface SearchFieldProps {
+export interface SearchFieldProps extends Props {
     name?: string;
     className?: string;
     value?: string;

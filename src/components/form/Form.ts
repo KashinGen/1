@@ -10,4 +10,8 @@ export class FormContainer extends Block {
     protected render(): string {
         return template;
     }
+
+    getTemplate(): string {
+        return template;
+    }
 }
