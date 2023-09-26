@@ -1,1 +1,1 @@
-export { ChangeProfileDataForm } from '../changeProfileData/ChangeProfileData';
+export { ChangeProfilePasswordForm } from './ChangeProfilePassword';

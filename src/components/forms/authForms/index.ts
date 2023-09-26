@@ -1,2 +1,2 @@
-export { AutorizationForm } from './autorization';
+export { AuthForm } from './autorization';
 export { RegistrationForm } from './registration';
