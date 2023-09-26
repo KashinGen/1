@@ -79,14 +79,14 @@ const attachRouterListeners = () => {
 }
 
 
-const urlRoute = (e) => {
+const urlRoute = (e: MouseEvent) => {
     e = e || window.event;
     if (e) {
         e.preventDefault();
         const target = e.target;
         if (target && (target instanceof HTMLElement || target instanceof SVGElement)) {
             const href = target.closest('.router-link');
-            if (e.target ) {
+            if (e.target && href instanceof HTMLAnchorElement) {
                 window.history.pushState({}, '', href.href);
                 urlLocationHandler();
             }
@@ -112,7 +112,7 @@ const urlLocationHandler = () => {
     }
 };
 
-const push = (path) => {
+const push = (path: string) => {
     const href = window.location.origin + path.toString();
     window.history.pushState({}, '', href);
     urlLocationHandler();

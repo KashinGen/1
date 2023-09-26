@@ -8,10 +8,10 @@
   },
   "scripts": {
     "dev": "vite --open",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "start": "npm run build && node server.cjs",
     "preview": "vite preview --open",
-    "lint": "npx eslint --ext .js src && npx stylelint \"**/*.scss\" "
+    "lint": "npx eslint --ext .ts src && npx stylelint \"**/*.scss\" "
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,11 @@
   },
   "homepage": "https://github.com/yandex-praktikum/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
+    "@types/handlebars": "^4.1.0",
+    "@types/node": "^20.5.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "typescript": "^5.0.2",
     "eslint": "8.35.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^5.0.0",
