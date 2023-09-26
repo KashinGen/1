@@ -105,6 +105,7 @@ const urlLocationHandler = () => {
     const root = document.getElementById('root');
     if (root) {
         //root.innerHTML = Handlebars.compile(route.template)(route.context);
+        console.log(route.context)
         const component = route.context ? new route.template(route.context) : new route.template();
         root.innerHTML = '';
         root.append(component.element!);
