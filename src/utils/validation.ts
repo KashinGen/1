@@ -52,6 +52,12 @@ export const validateName = (val?: string) => {
 }
 
 
+export const validateMessage = (val?: string) => {
+    if(!val) {
+        return 'Не должно быть пустым';
+    }   
+}
+
 export const validatePhone = (val?: string) => {
     if(!val) {
         return 'Обязательное поле';
@@ -63,7 +69,6 @@ export const validatePhone = (val?: string) => {
         return 'Невалидный номер телефона';
     }
 }
-
 
 export const validateEmail = (val?: string) => {
     if(!val) {
