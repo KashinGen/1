@@ -11,3 +11,8 @@ export { IconAppLink } from './appLink/iconAppLink';
 export { BackButton } from './appLink/backButton';
 export { Button } from './button';
 export { ProfileItem } from './profileItem';
+export { ChatItem } from './chat/ChatItem';
+export { ChatInput } from './chat/ChatInput';
+export { SendButton } from './button/sendButton';
+export { Dialog } from './chat/Dialog';
+

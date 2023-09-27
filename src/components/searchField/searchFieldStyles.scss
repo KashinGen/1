@@ -6,6 +6,7 @@
     background-color: $color-softgrey;
     border-radius: 5px;
     height: 32px;
+    flex-shrink: 0;
     font-weight: 600;
     color: $color-grey;
     box-sizing: border-box;

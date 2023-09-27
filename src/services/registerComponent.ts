@@ -18,5 +18,9 @@ export const registerComponents = () => {
     registerComponent('RegistrationForm', Components.RegistrationForm);
     registerComponent('ChangeProfileDataForm', Components.ChangeProfileDataForm);
     registerComponent('ChangePasswordForm', Components.ChangeProfilePasswordForm);
+    registerComponent('ChatItem', Components.ChatItem);
+    registerComponent('ChatInput', Components.ChatInput);
+    registerComponent('SendButton', Components.SendButton);
+    registerComponent('Dialog', Components.Dialog);
     registerPartial('Form', Components.Form);
 }

@@ -7,9 +7,31 @@
             {{{ SearchField }}}
         </div>
         <div class="chats-page__list">
+            {{#each chatsList}}
+                {{{ ChatItem userName=this.userName 
+                        lastMessage=this.lastMessage
+                        selected=this.selected
+                        unreadMessagesCount=this.unreadMessagesCount 
+                        time=this.time
+                        lastYou=this.lastYou
+                }}}
+            {{/each}}
         </div>
     </div>
     <div class="chats-page__current">
-        <div>Выберите чат чтобы отправить сообщение</div>
+        <div class="chats-page__current-top">
+            <div class="chats-page__current-user">
+                <div class="chats-page__current-user-img"></div>
+                <div class="chats-page__current-user-name">Вадим</div>
+            </div>
+        </div>
+        <div class="chats-page__current-body">
+            {{#each messagesList}}
+                {{{ Dialog message=this.message type=this.type user=this.user time=this.time }}}
+            {{/each}}
+        </div>
+        <div class="chats-page__current-bottom">
+            {{{ChatInput}}}
+        </div>
     </div>
 </div>

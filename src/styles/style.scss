@@ -3,6 +3,12 @@
     src: url('src/assets/fonts/Roboto-Regular.ttf') format('truetype');
 }
 
+*, 
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
 .html,
 .body {
     font-family: Roboto, sans-serif;

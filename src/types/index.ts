@@ -90,3 +90,93 @@ export interface SearchFieldProps extends Props {
     className?: string;
     value?: string;
 }
+
+
+export interface ChatItemProps extends Props {
+    time: string;
+    lastMessage: string;
+    lastYou: boolean;
+    userName?: string;
+    selected: boolean;
+    unreadMessagesCount: number
+}
+
+export interface ChatsPageProps extends Props {
+    chatsList?: Array<ChatItemProps>;
+    messagesList?: Array<Dialog>;
+}
+
+export type ButtonType = 'prymary' | 'secondary' | 'important';
+
+export type HTMLInputTypeAttribute  = 
+    'button' | 
+    'checkbox' | 
+    'color' | 
+    'date' | 
+    'datetime-local' | 
+    'email' | 
+    'file' | 
+    'hidden' | 
+    'image' | 
+    'month' | 
+    'number' | 
+    'password' | 
+    'radio' | 
+    'range' | 
+    'reset' | 
+    'search' | 
+    'submit' | 
+    'tel' | 
+    'text' | 
+    'time' | 
+    'url' | 
+    'week';
+
+/**
+ * Тип заголовка
+ */
+export type TitleType = 'smal' | 'bold';
+
+/**
+ * Элемент чата
+ */
+export interface ChatItem {
+    /**
+     * Название чата
+     */
+    chatName: string;
+
+    /**
+     * Последнее сообщение
+     */
+    lastMessage?: string;
+
+    /**
+     * Выбран ли элемент
+     */
+    selected?: boolean;
+
+    /**
+     * Дата отправки
+     */
+    sentTime?: string;
+
+    /**
+     * Кол-во непрочитанных сообщений
+     */
+    unreadedMessagesCount?: number;
+
+    /**
+     * Отправитель
+     */
+    who?: string;
+}
+
+export type DialogType = 'incoming' | 'outgoing';
+
+export interface Dialog extends Props {
+    message: string;
+    type: DialogType;
+    time: string;
+    user?: string;
+}

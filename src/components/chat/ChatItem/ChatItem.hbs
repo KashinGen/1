@@ -1,0 +1,18 @@
+<div class="chat-item {{#if selected}}chat-item_selected{{/if}}">
+    <div class="chat-item__image"></div>
+    <div class="chat-item__content">
+        <div class="chat-item__name">{{userName}}</div>
+        <span class="chat-item__message">
+            {{#if lastYou}}
+                <span class="chat-item__label-self">Вы</span>
+            {{/if}}
+            {{lastMessage}}
+        </span>
+    </div>
+    <div class="chat-item__right">
+        <span class="chat-item__time">{{time}}</span>
+        {{#if unreadMessagesCount}}
+            <div class="chat-item__unread-counter">{{unreadMessagesCount}}</div>
+        {{/if}}
+    </div>
+</div>

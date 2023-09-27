@@ -1,0 +1,52 @@
+@import '../../../styles/variables';
+
+.chat-input {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid $color-lightgrey;
+    padding: 11px 0;
+    &__message-input {
+        flex-grow: 1;
+        border-radius: 30px;
+        background: $color-softgrey;
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 12px; 
+        height: 32px;
+        &::placeholder {
+            color: $color-grey;
+        }
+
+    }
+    &__attach-wrapper {
+        flex-shrink: 0;
+    }
+    &__attach-input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    &__attach-label {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+}
+
+@media screen and (hover:hover) {
+    .chat-input {
+        &__attach-label:hover svg path {
+            fill: black;
+        }
+    }
+}

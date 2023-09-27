@@ -1,5 +1,6 @@
+import { Chats, Messages } from '../data/chat';
 import * as Pages from '../pages';
-import { Route } from '../types';
+import { ChatsPageProps, Route } from '../types';
 
 
 const routes = {
@@ -40,6 +41,10 @@ const routes = {
         template: Pages.ChatsPage,
         title: 'Чаты',
         description: 'Чаты',
+        context: {
+            chatsList: Chats,
+            messagesList: Messages,
+        } as ChatsPageProps
     },
     '/profile': {
         template: Pages.ProfilePage,
