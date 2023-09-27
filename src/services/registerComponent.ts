@@ -2,8 +2,8 @@ import { registerComponent, registerPartial } from '../core/Register';
 import * as Components from '../components';
 
 export const registerComponents = () => {
-    registerComponent('AppLink', Components.AppLink);
     registerComponent('Avatar', Components.Avatar);
+    registerComponent('AppLink', Components.AppLink);
     registerComponent('Button', Components.Button);
     registerComponent('BackButton', Components.BackButton);
     registerComponent('IconAppLink', Components.IconAppLink);
