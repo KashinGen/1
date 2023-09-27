@@ -43,6 +43,7 @@
         flex-direction: column;
         padding: 0 20px;
     }
+
     &__current-top {
         flex-shrink: 0;
         display: flex;
@@ -51,11 +52,13 @@
         padding: 10px 0;
         border-bottom: 1px solid $color-lightgrey;
     }
+
     &__current-user {
         display: flex;
         align-items: center;
         gap: 10px;
     }
+
     &__current-user-img {
         border-radius: 50%;
         width: 34px;
@@ -63,6 +66,7 @@
         flex-shrink: 0;
         background: $color-softgrey;
     }
+
     &__current-user-name {
         color: $color-baseblack;
         font-size: 13px;
@@ -70,6 +74,7 @@
         font-weight: 600;
         line-height: 13px;
     }
+
     &__current-body {
         flex-grow: 1;
         overflow: auto;
