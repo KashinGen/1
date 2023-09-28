@@ -138,7 +138,7 @@ class Block {
 
     private _render() {
         const fragment = this.compile(this.render(), this.props);
-        this._addEvents();
+        this._removeEvents();
         const newElement = fragment.firstElementChild as HTMLElement;
         if (this._element) {
             this._element.replaceWith(newElement);
