@@ -1,0 +1,8 @@
+@import '../../styles/variables';
+
+.input {
+    &__error {
+        font-size: 8px;
+        color: $color-error;
+    }
+}

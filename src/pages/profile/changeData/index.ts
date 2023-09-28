@@ -1,0 +1,1 @@
+export { ChangeProfileDataPage } from './ChangeProfileDataPage';

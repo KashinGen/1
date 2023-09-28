@@ -1,11 +1,11 @@
 <div class="input">
-    <label class="input__label" for{{name}}>{{label}}</label>
-    <input 
-        name="{{name}}"
-        class="input__input" 
-        type="{{type}}" 
-        value="{{value}}" 
-        placeholder="{{placeholder}}" 
-    />
-    <span class="input__error">{{errorMessage}}</span>
+    <label class="input__label" for="{{name}}">{{label}}</label>
+    {{{BaseInput name=name
+            ref="input"    
+            type=type
+            onBlur=onBlur
+            placeholder=placeholder
+            className="input__input" 
+    }}}
+    {{{ ErrorMessage ref="validationMessage" }}}
 </div>

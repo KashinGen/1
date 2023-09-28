@@ -1,0 +1,1 @@
+export { ChangeProfileDataForm } from './ChangeProfileData';

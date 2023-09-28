@@ -1,0 +1,1 @@
+export { IconAppLink } from './IconAppLink';

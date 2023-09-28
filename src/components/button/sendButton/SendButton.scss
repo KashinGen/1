@@ -1,0 +1,23 @@
+@import '../../../styles/variables';
+
+.button-send {
+    cursor: pointer;
+    border: none;
+    width: 28px;
+    height: 28px;
+    color: $color-white;
+    background: $color-blue;
+    border-radius: 50%;
+    
+    &__arrow {
+        background: url('../../../assets/icons/ForwardIcon.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 16px;
+        height: 16px;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
